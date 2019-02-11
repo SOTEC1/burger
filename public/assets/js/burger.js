@@ -3,9 +3,9 @@ $(document).ready(function(){
   $(".mark-complete").on("click", function() {
 
     // read id from button
-    const todoId = $(this).attr("data-id");
+    const burgerId = $(this).attr("data-id");
     $.ajax({
-      url: "/api/todos/" + todoId,
+      url: "/api/todos/" + burgerId,
       method: "PUT"
     }).then(function(data) {
       location.reload();
@@ -16,9 +16,9 @@ $(document).ready(function(){
   $(".delete").on("click", function () {
 
     // read id from button
-    const todoId = $(this).attr("data-id");
+    const burgerId = $(this).attr("data-id");
     $.ajax({
-      url: "/api/todos/" + todoId,
+      url: "/api/todos/" + burgerId,
       method: "DELETE"
     }).then(function (data) {
       location.reload();
@@ -30,14 +30,14 @@ $(document).ready(function(){
     e.preventDefault();
 
     // package up todo
-    const todoItem = {
-      todo: $("#todo-input").val().trim()
+    const burgerItem = {
+      burger: $("#todo-input").val().trim()
     }
 
     $.ajax({
       url: "/api/todos",
       method: "POST",
-      data: todoItem // req.body
+      data: burgerItem // req.body
     })
     .then(function(data) {
       location.reload();

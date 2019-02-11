@@ -32,6 +32,7 @@ module.exports = {
     // req.body => {todo: "Make a todo"}
     db
       .query("INSERT INTO burger SET ?", req.body, function (err, dbTodos) {
+        console.log(req.body);
         if (err) {
           console.log(err);
           return res
